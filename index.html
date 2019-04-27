@@ -504,18 +504,17 @@
       
         
           
-            <h2 id="什么是Verilog-A模型"><a href="#什么是Verilog-A模型" class="headerlink" title="什么是Verilog-A模型"></a>什么是Verilog-A模型</h2><p>可以简单理解为采用Verilog类似的语法来描述Analog电路器件模型，见wikipedia的解释:</p>
-<blockquote>
-<p>Verilog-A是一种针对模拟电路的工业标准模型语言，它是 Verilog-AMS的连续时间子集。<br>Verilog-A被设计用来对Spectre电路仿真器（Spectre Circuit Simulator）的行为级描述进行标准化，以实现与VHDL（另一个IEEE标准支持的硬件描述语言）。它从其他语言（例如MAST）吸收了对模拟电路的支持。国际Verilog开放组织（Open Verilog International, OVI）支持 Verilog的标准化，使得Verilog-A作为整个Verilog-AMS计划的一部分，从而实现对模拟电路和数字电路设计的处理能力。Verilog-A是Verilog-AMS项目的最初阶段发展起来的。不过，Verilog的开发进展与Verilog-AMS延迟不同，而当时Verilog被纳入了IEEE 1364标准，这就使得Verilog-AMS被遗留给了Accellera公司。因此最初的单一语言标准的目标并没有实现。[^1]</p>
-</blockquote>
-<h2 id="构建一个简单的测试模型"><a href="#构建一个简单的测试模型" class="headerlink" title="构建一个简单的测试模型"></a>构建一个简单的测试模型</h2><p>使用一个正弦信号源模型来做为测试用，Verilog A代码如下<br><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">`<span class="meta-keyword">include</span> "disciplines.vams"</span></span><br><span class="line"><span class="meta">`<span class="meta-keyword">include</span> "constants.vams"</span></span><br><span class="line"><span class="keyword">module</span> sine_wave(n1,n2);</span><br><span class="line">       electrical n1,n2;</span><br><span class="line">       <span class="keyword">parameter</span> <span class="keyword">real</span> gain = <span class="number">1</span><span class="variable">.0</span>, freq = <span class="number">1</span><span class="variable">.0</span>;</span><br><span class="line">       analog <span class="keyword">begin</span>:</span><br><span class="line">       V(n1,n2) &lt;+ gain * sin(<span class="number">2</span> * <span class="meta">`M_PI * freq* $abstime);</span></span><br><span class="line">       $bound_step(<span class="number">0</span><span class="variable">.05</span>/freq);</span><br><span class="line">       <span class="keyword">end</span></span><br><span class="line"> <span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure></p>
-<p>其中gain和freq做为变量，作为模型可变参数后续可以进行灵活设置</p>
-<h2 id="如何在ADS中使用Verilog-A模型"><a href="#如何在ADS中使用Verilog-A模型" class="headerlink" title="如何在ADS中使用Verilog-A模型"></a>如何在ADS中使用Verilog-A模型</h2><p>1、在ADS软件中新建一个project，在对应的project下面建立一个veriloga文件夹，将测试代码另存到这个文件夹内部，命名为sine_wave.va<br><img src="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190428001239.png" alt><br>2、在ADS中新建模型对应的symbol，放入两个port,<br><img src="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190428001624.png" alt><br>编辑design parameter,需要对应将之前代码中设置为parameter的gain和freq设置一个参数<br><img src="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190428001806.png" alt><br>让后软件即可自动生成一个symbol，symbol的形状可以编辑，本文只作示意，用默认不更改<br>3、重新建立一个测试电路原理图，将刚才模型导入设计中，整体搭建的简单测试电路如下<br><img src="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190428002113.png" alt><br>4、运行并获得仿真结果，与预测的标准模型功能一致，模型顺利工作（注意步进时间的取舍，过小，仿真时间过长，过大，会导致波形细节有问题，可以自己调试做调整）<br><img src="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190428002237.png" alt><br>5、改变 parameter 的设置，观察参数是否有传递。将Freq设置为2，仿真查看波形，发现参数导入正常，模型的参数化功能也是可以顺利使用的</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>在ADS引入标准的Verilog-A模型，可以利用硬件描述来实现模拟器件的行为级兼容，为仿真建模带来很多便利性，可以在此基础上构建更加复杂的模型，同时解决那些用分离器件构建复杂模型的痛楚</p>
-<hr>
-<p><em>文章和代码仅供学习使用，转载请注明出处，若涉及权利问题，请及时联系版主处理，谢谢！</em><br><em>All Right Reserved</em><br>[^1]:引用wiki解释</p>
+          什么是Verilog-A模型可以简单理解为采用Verilog类似的语法来描述Analog电路器件模型，见wikipedia的解释:
 
-          
+Verilog-A是一种针对模拟电路的工业标准模型语言，它是 Verilog-AMS的连续时间子集。Verilog-A被设计用来对Spectre电路仿真器（Spect
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/04/27/Use-verilog-A-model-in-ADS/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
