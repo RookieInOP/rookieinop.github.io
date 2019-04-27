@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-27T15:51:02.359Z</updated>
+  <updated>2019-04-27T16:38:44.715Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,14 +21,11 @@
     <link href="http://yoursite.com/2019/04/19/create_PWL_for_spice_simulation/"/>
     <id>http://yoursite.com/2019/04/19/create_PWL_for_spice_simulation/</id>
     <published>2019-04-18T16:00:00.000Z</published>
-    <updated>2019-04-27T15:51:02.359Z</updated>
+    <updated>2019-04-27T16:38:44.715Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;最近想使用免费的LTSPICE做一些简单的信号仿真，评估信号经过一些链路模型传输后信号SI表型如何？需要在LTSPICE中采用信号系统中通常采用的伪随二进制码序列（PRBS）作为信号激励，模拟真实传输场景下数字信号频谱分布，同时在链路的接收端将信号切片叠成眼图形式对接收到的
-      
+      &lt;p&gt;使用python产生PRBS仿真序列，转换成标准格式的逻辑电平信号，自动写入Text文档中构成PWL文件，可直接导入LTSPICE中作为信号源进行仿真&lt;br&gt;
     
     </summary>
     
