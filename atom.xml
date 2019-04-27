@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-27T14:32:54.854Z</updated>
+  <updated>2019-04-27T15:51:02.359Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2019/04/19/create_PWL_for_spice_simulation/"/>
     <id>http://yoursite.com/2019/04/19/create_PWL_for_spice_simulation/</id>
     <published>2019-04-18T16:00:00.000Z</published>
-    <updated>2019-04-27T14:32:54.854Z</updated>
+    <updated>2019-04-27T15:51:02.359Z</updated>
     
     <summary type="html">
     
@@ -32,7 +32,7 @@
     
     </summary>
     
-      <category term="信号处理" scheme="http://yoursite.com/categories/%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/"/>
+      <category term="信号完整性" scheme="http://yoursite.com/categories/%E4%BF%A1%E5%8F%B7%E5%AE%8C%E6%95%B4%E6%80%A7/"/>
     
     
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
@@ -44,6 +44,35 @@
       <category term="Eye" scheme="http://yoursite.com/tags/Eye/"/>
     
       <category term="PWL" scheme="http://yoursite.com/tags/PWL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在ADS中使用Verilog-A模型进行仿真</title>
+    <link href="http://yoursite.com/2016/04/27/Use-verilog-A-model-in-ADS/"/>
+    <id>http://yoursite.com/2016/04/27/Use-verilog-A-model-in-ADS/</id>
+    <published>2016-04-27T15:51:53.000Z</published>
+    <updated>2019-04-27T16:30:01.624Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;什么是Verilog-A模型&quot;&gt;&lt;a href=&quot;#什么是Verilog-A模型&quot; class=&quot;headerlink&quot; title=&quot;什么是Verilog-A模型&quot;&gt;&lt;/a&gt;什么是Verilog-A模型&lt;/h2&gt;&lt;p&gt;可以简单理解为采用Verilog类似的语法来
+      
+    
+    </summary>
+    
+      <category term="信号完整性" scheme="http://yoursite.com/categories/%E4%BF%A1%E5%8F%B7%E5%AE%8C%E6%95%B4%E6%80%A7/"/>
+    
+    
+      <category term="Verilog A" scheme="http://yoursite.com/tags/Verilog-A/"/>
+    
+      <category term="ADS" scheme="http://yoursite.com/tags/ADS/"/>
+    
+      <category term="Simulation" scheme="http://yoursite.com/tags/Simulation/"/>
+    
+      <category term="SI" scheme="http://yoursite.com/tags/SI/"/>
     
   </entry>
   

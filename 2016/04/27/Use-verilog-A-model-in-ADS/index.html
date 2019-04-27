@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Verilog A,ADS,Simulation,SI,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rookie's Garden" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="什么是Verilog-A模型可以简单理解为采用Verilog类似的语法来描述Analog电路器件模型，见wikipedia的解释:  Verilog-A是一种针对模拟电路的工业标准模型语言，它是 Verilog-AMS的连续时间子集。Verilog-A被设计用来对Spectre电路仿真器（Spectre Circuit Simulator）的行为级描述进行标准化，以实现与VHDL（另一个IEEE标">
+<meta name="keywords" content="Verilog A,ADS,Simulation,SI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在ADS中使用Verilog-A模型进行仿真">
+<meta property="og:url" content="http://yoursite.com/2016/04/27/Use-verilog-A-model-in-ADS/index.html">
+<meta property="og:site_name" content="Rookie&#39;s Garden">
+<meta property="og:description" content="什么是Verilog-A模型可以简单理解为采用Verilog类似的语法来描述Analog电路器件模型，见wikipedia的解释:  Verilog-A是一种针对模拟电路的工业标准模型语言，它是 Verilog-AMS的连续时间子集。Verilog-A被设计用来对Spectre电路仿真器（Spectre Circuit Simulator）的行为级描述进行标准化，以实现与VHDL（另一个IEEE标">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190428001239.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190428001624.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190428001806.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190428002113.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190428002237.png">
+<meta property="og:updated_time" content="2019-04-27T16:30:01.624Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在ADS中使用Verilog-A模型进行仿真">
+<meta name="twitter:description" content="什么是Verilog-A模型可以简单理解为采用Verilog类似的语法来描述Analog电路器件模型，见wikipedia的解释:  Verilog-A是一种针对模拟电路的工业标准模型语言，它是 Verilog-AMS的连续时间子集。Verilog-A被设计用来对Spectre电路仿真器（Spectre Circuit Simulator）的行为级描述进行标准化，以实现与VHDL（另一个IEEE标">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190428001239.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/04/27/Use-verilog-A-model-in-ADS/">
+
+
+
+
+
+  <title>在ADS中使用Verilog-A模型进行仿真 | Rookie's Garden</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rookie's Garden</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一个菜鸟的后花园</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/27/Use-verilog-A-model-in-ADS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mark Lee">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rookie's Garden">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">在ADS中使用Verilog-A模型进行仿真</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-27T23:51:53+08:00">
+                2016-04-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/信号完整性/" itemprop="url" rel="index">
+                    <span itemprop="name">信号完整性</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="什么是Verilog-A模型"><a href="#什么是Verilog-A模型" class="headerlink" title="什么是Verilog-A模型"></a>什么是Verilog-A模型</h2><p>可以简单理解为采用Verilog类似的语法来描述Analog电路器件模型，见wikipedia的解释:</p>
+<blockquote>
+<p>Verilog-A是一种针对模拟电路的工业标准模型语言，它是 Verilog-AMS的连续时间子集。<br>Verilog-A被设计用来对Spectre电路仿真器（Spectre Circuit Simulator）的行为级描述进行标准化，以实现与VHDL（另一个IEEE标准支持的硬件描述语言）。它从其他语言（例如MAST）吸收了对模拟电路的支持。国际Verilog开放组织（Open Verilog International, OVI）支持 Verilog的标准化，使得Verilog-A作为整个Verilog-AMS计划的一部分，从而实现对模拟电路和数字电路设计的处理能力。Verilog-A是Verilog-AMS项目的最初阶段发展起来的。不过，Verilog的开发进展与Verilog-AMS延迟不同，而当时Verilog被纳入了IEEE 1364标准，这就使得Verilog-AMS被遗留给了Accellera公司。因此最初的单一语言标准的目标并没有实现。[^1]</p>
+</blockquote>
+<h2 id="构建一个简单的测试模型"><a href="#构建一个简单的测试模型" class="headerlink" title="构建一个简单的测试模型"></a>构建一个简单的测试模型</h2><p>使用一个正弦信号源模型来做为测试用，Verilog A代码如下<br><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">`<span class="meta-keyword">include</span> "disciplines.vams"</span></span><br><span class="line"><span class="meta">`<span class="meta-keyword">include</span> "constants.vams"</span></span><br><span class="line"><span class="keyword">module</span> sine_wave(n1,n2);</span><br><span class="line">       electrical n1,n2;</span><br><span class="line">       <span class="keyword">parameter</span> <span class="keyword">real</span> gain = <span class="number">1</span><span class="variable">.0</span>, freq = <span class="number">1</span><span class="variable">.0</span>;</span><br><span class="line">       analog <span class="keyword">begin</span>:</span><br><span class="line">       V(n1,n2) &lt;+ gain * sin(<span class="number">2</span> * <span class="meta">`M_PI * freq* $abstime);</span></span><br><span class="line">       $bound_step(<span class="number">0</span><span class="variable">.05</span>/freq);</span><br><span class="line">       <span class="keyword">end</span></span><br><span class="line"> <span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure></p>
+<p>其中gain和freq做为变量，作为模型可变参数后续可以进行灵活设置</p>
+<h2 id="如何在ADS中使用Verilog-A模型"><a href="#如何在ADS中使用Verilog-A模型" class="headerlink" title="如何在ADS中使用Verilog-A模型"></a>如何在ADS中使用Verilog-A模型</h2><p>1、在ADS软件中新建一个project，在对应的project下面建立一个veriloga文件夹，将测试代码另存到这个文件夹内部，命名为sine_wave.va<br><img src="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190428001239.png" alt><br>2、在ADS中新建模型对应的symbol，放入两个port,<br><img src="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190428001624.png" alt><br>编辑design parameter,需要对应将之前代码中设置为parameter的gain和freq设置一个参数<br><img src="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190428001806.png" alt><br>让后软件即可自动生成一个symbol，symbol的形状可以编辑，本文只作示意，用默认不更改<br>3、重新建立一个测试电路原理图，将刚才模型导入设计中，整体搭建的简单测试电路如下<br><img src="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190428002113.png" alt><br>4、运行并获得仿真结果，与预测的标准模型功能一致，模型顺利工作（注意步进时间的取舍，过小，仿真时间过长，过大，会导致波形细节有问题，可以自己调试做调整）<br><img src="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190428002237.png" alt><br>5、改变 parameter 的设置，观察参数是否有传递。将Freq设置为2，仿真查看波形，发现参数导入正常，模型的参数化功能也是可以顺利使用的</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>在ADS引入标准的Verilog-A模型，可以利用硬件描述来实现模拟器件的行为级兼容，为仿真建模带来很多便利性，可以在此基础上构建更加复杂的模型，同时解决那些用分离器件构建复杂模型的痛楚</p>
+<hr>
+<p><em>文章和代码仅供学习使用，转载请注明出处，若涉及权利问题，请及时联系版主处理，谢谢！</em><br><em>All Right Reserved</em><br>[^1]:引用wiki解释</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Mark Lee
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2016/04/27/Use-verilog-A-model-in-ADS/" title="在ADS中使用Verilog-A模型进行仿真">http://yoursite.com/2016/04/27/Use-verilog-A-model-in-ADS/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Verilog-A/" rel="tag"># Verilog A</a>
+          
+            <a href="/tags/ADS/" rel="tag"># ADS</a>
+          
+            <a href="/tags/Simulation/" rel="tag"># Simulation</a>
+          
+            <a href="/tags/SI/" rel="tag"># SI</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/19/create_PWL_for_spice_simulation/" rel="prev" title="如何使用Python自动产生SPICE仿真用PWL文件">
+                如何使用Python自动产生SPICE仿真用PWL文件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Mark Lee</p>
+              <p class="site-description motion-element" itemprop="description">学如逆水行舟，不进则退</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/RookieInOP" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:markli.better@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Verilog-A模型"><span class="nav-number">1.</span> <span class="nav-text">什么是Verilog-A模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构建一个简单的测试模型"><span class="nav-number">2.</span> <span class="nav-text">构建一个简单的测试模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何在ADS中使用Verilog-A模型"><span class="nav-number">3.</span> <span class="nav-text">如何在ADS中使用Verilog-A模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mark Lee</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
