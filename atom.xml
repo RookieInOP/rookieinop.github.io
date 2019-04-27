@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://rookieinop.github.io/"/>
-  <updated>2019-04-27T16:58:06.226Z</updated>
+  <updated>2019-04-27T17:16:11.350Z</updated>
   <id>https://rookieinop.github.io/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="https://rookieinop.github.io/create_PWL_for_spice_simulation/"/>
     <id>https://rookieinop.github.io/create_PWL_for_spice_simulation/</id>
     <published>2019-04-18T16:00:00.000Z</published>
-    <updated>2019-04-27T16:58:06.226Z</updated>
+    <updated>2019-04-27T17:16:11.350Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;最近想使用免费的LTSPICE做一些简单的信号仿真，评估信号经过一些链路模型传输后信号SI表型如何？需要在LTSPICE中采用信号系统中通常采用的伪随二进制码序列（PRBS）作为信号激励，模拟真实传输场景下数字信号频谱分布，同时在链路的接收端将信号切片叠成眼图形式对接收到的方波信号质量做比较直观的评估。但是如果采用LTSPICE中自带的移位寄存器设计数字电路来实现这个功能，整体的模拟时间会比较长，同时产生长序列高速率的PRBS比较困难。为提高模拟效率并简化仿真电路，所以信号采用导入PRBS的PWL file来实现。&lt;br&gt;
+      &lt;p&gt;最近想使用免费的LTSPICE做一些简单的信号仿真，评估信号经过一些链路模型传输后信号SI表型如何？需要在LTSPICE中采用信号系统中通常采用的伪随二进制码序列（PRBS）作为信号激励，模拟真实传输场景下数字信号频谱分布，同时在链路的接收端将信号切片叠成眼图形式对接收到的方波信号质量做比较直观的评估。
     
     </summary>
     
@@ -49,13 +49,11 @@
     <link href="https://rookieinop.github.io/Use-verilog-A-model-in-ADS/"/>
     <id>https://rookieinop.github.io/Use-verilog-A-model-in-ADS/</id>
     <published>2016-04-27T15:51:53.000Z</published>
-    <updated>2019-04-27T16:58:11.947Z</updated>
+    <updated>2019-04-27T17:17:53.197Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;什么是Verilog-A模型&quot;&gt;&lt;a href=&quot;#什么是Verilog-A模型&quot; class=&quot;headerlink&quot; title=&quot;什么是Verilog-A模型&quot;&gt;&lt;/a&gt;什么是Verilog-A模型&lt;/h2&gt;&lt;p&gt;可以简单理解为采用Verilog类似的语法来描述Analog电路器件模型，见wikipedia的解释:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Verilog-A是一种针对模拟电路的工业标准模型语言，它是 Verilog-AMS的连续时间子集。&lt;br&gt;Verilog-A被设计用来对Spectre电路仿真器（Spectre Circuit Simulator）的行为级描述进行标准化，以实现与VHDL（另一个IEEE标准支持的硬件描述语言）。它从其他语言（例如MAST）吸收了对模拟电路的支持。国际Verilog开放组织（Open Verilog International, OVI）支持 Verilog的标准化，使得Verilog-A作为整个Verilog-AMS计划的一部分，从而实现对模拟电路和数字电路设计的处理能力。Verilog-A是Verilog-AMS项目的最初阶段发展起来的。不过，Verilog的开发进展与Verilog-AMS延迟不同，而当时Verilog被纳入了IEEE 1364标准，这就使得Verilog-AMS被遗留给了Accellera公司。因此最初的单一语言标准的目标并没有实现。[^1]&lt;br&gt;
+      &lt;h2 id=&quot;什么是Verilog-A模型&quot;&gt;&lt;a href=&quot;#什么是Verilog-A模型&quot; class=&quot;headerlink&quot; title=&quot;什么是Verilog-A模型&quot;&gt;&lt;/a&gt;什么是Verilog-A模型&lt;/h2&gt;&lt;p&gt;可以简单理解为采用Verilog类似的语法来描述Analog电路器件模型，见wikipedia的解释:&lt;br&gt;
     
     </summary>
     
