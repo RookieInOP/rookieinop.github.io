@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Rookie&#39;s Garden</title>
+  
+  <subtitle>一个菜鸟的后花园</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-04-27T14:32:54.854Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Mark Lee</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何使用Python自动产生SPICE仿真用PWL文件</title>
+    <link href="http://yoursite.com/2019/04/19/create_PWL_for_spice_simulation/"/>
+    <id>http://yoursite.com/2019/04/19/create_PWL_for_spice_simulation/</id>
+    <published>2019-04-18T16:00:00.000Z</published>
+    <updated>2019-04-27T14:32:54.854Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近想使用免费的LTSPICE做一些简单的信号仿真，评估信号经过一些链路模型传输后信号SI表型如何？需要在LTSPICE中采用信号系统中通常采用的伪随二进制码序列（PRBS）作为信号激励，模拟真实传输场景下数字信号频谱分布，同时在链路的接收端将信号切片叠成眼图形式对接收到的
+      
+    
+    </summary>
+    
+      <category term="信号处理" scheme="http://yoursite.com/categories/%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/"/>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="PRBS" scheme="http://yoursite.com/tags/PRBS/"/>
+    
+      <category term="LTSPICE" scheme="http://yoursite.com/tags/LTSPICE/"/>
+    
+      <category term="Eye" scheme="http://yoursite.com/tags/Eye/"/>
+    
+      <category term="PWL" scheme="http://yoursite.com/tags/PWL/"/>
+    
+  </entry>
+  
+</feed>
