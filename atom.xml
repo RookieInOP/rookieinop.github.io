@@ -10,7 +10,7 @@
   <id>https://rookieinop.github.io/</id>
   
   <author>
-    <name>Mark Lee</name>
+    <name>Mark</name>
     
   </author>
   
@@ -41,6 +41,34 @@
       <category term="Eye" scheme="https://rookieinop.github.io/tags/Eye/"/>
     
       <category term="PWL" scheme="https://rookieinop.github.io/tags/PWL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>怎么建立简单的ZSFP连接器模型进行SI仿真</title>
+    <link href="https://rookieinop.github.io/how-to-simulat-SFF-Connector/"/>
+    <id>https://rookieinop.github.io/how-to-simulat-SFF-Connector/</id>
+    <published>2016-07-07T13:11:32.000Z</published>
+    <updated>2019-05-02T14:33:10.508Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;文章摘要&quot;&gt;&lt;a href=&quot;#文章摘要&quot; class=&quot;headerlink&quot; title=&quot;文章摘要&quot;&gt;&lt;/a&gt;文章摘要&lt;/h2&gt;&lt;p&gt;本文介绍了如何在无法获取对应connector连接器模型进行3D SI仿真时，如何通过一些简单的结构分解手段和等效计算方式构建对应的连接器模型进行仿真计算。
+    
+    </summary>
+    
+      <category term="信号完整性" scheme="https://rookieinop.github.io/categories/%E4%BF%A1%E5%8F%B7%E5%AE%8C%E6%95%B4%E6%80%A7/"/>
+    
+    
+      <category term="SI" scheme="https://rookieinop.github.io/tags/SI/"/>
+    
+      <category term="connector" scheme="https://rookieinop.github.io/tags/connector/"/>
+    
+      <category term="zSFP" scheme="https://rookieinop.github.io/tags/zSFP/"/>
+    
+      <category term="simulation" scheme="https://rookieinop.github.io/tags/simulation/"/>
+    
+      <category term="TDR" scheme="https://rookieinop.github.io/tags/TDR/"/>
     
   </entry>
   

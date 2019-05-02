@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="SI,connector,zSFP,simulation,TDR,">
 
 
 
@@ -81,17 +81,28 @@
 
 
 
-<meta name="description" content="学如逆水行舟，不进则退">
-<meta name="keywords" content="python，coding, communication, optical, hardware">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rookie&#39;s Garden">
-<meta property="og:url" content="https://rookieinop.github.io/index.html">
+<meta name="description" content="文章摘要本文介绍了如何在无法获取对应connector连接器模型进行3D SI仿真时，如何通过一些简单的结构分解手段和等效计算方式构建对应的连接器模型进行仿真计算。">
+<meta name="keywords" content="SI,connector,zSFP,simulation,TDR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="怎么建立简单的ZSFP连接器模型进行SI仿真">
+<meta property="og:url" content="https://rookieinop.github.io/how-to-simulat-SFF-Connector/index.html">
 <meta property="og:site_name" content="Rookie&#39;s Garden">
-<meta property="og:description" content="学如逆水行舟，不进则退">
+<meta property="og:description" content="文章摘要本文介绍了如何在无法获取对应connector连接器模型进行3D SI仿真时，如何通过一些简单的结构分解手段和等效计算方式构建对应的连接器模型进行仿真计算。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190502215114.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190502215541.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190502215817.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190502220856.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190502221012.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190502221338.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190502221654.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190502221932.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190502222050.png">
+<meta property="og:updated_time" content="2019-05-02T14:33:10.508Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rookie&#39;s Garden">
-<meta name="twitter:description" content="学如逆水行舟，不进则退">
+<meta name="twitter:title" content="怎么建立简单的ZSFP连接器模型进行SI仿真">
+<meta name="twitter:description" content="文章摘要本文介绍了如何在无法获取对应connector连接器模型进行3D SI仿真时，如何通过一些简单的结构分解手段和等效计算方式构建对应的连接器模型进行仿真计算。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190502215114.png">
 
 
 
@@ -121,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="https://rookieinop.github.io/">
+  <link rel="canonical" href="https://rookieinop.github.io/how-to-simulat-SFF-Connector/">
 
 
 
 
 
-  <title>Rookie's Garden</title>
+  <title>怎么建立简单的ZSFP连接器模型进行SI仿真 | Rookie's Garden</title>
   
 
 
@@ -146,8 +157,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -250,166 +260,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://rookieinop.github.io/create_PWL_for_spice_simulation/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mark">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Rookie's Garden">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/create_PWL_for_spice_simulation/" itemprop="url">如何使用Python自动产生SPICE仿真用PWL文件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-19T00:00:00+08:00">
-                2019-04-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/信号完整性/" itemprop="url" rel="index">
-                    <span itemprop="name">信号完整性</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/create_PWL_for_spice_simulation/" class="leancloud_visitors" data-flag-title="如何使用Python自动产生SPICE仿真用PWL文件">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>最近想使用免费的LTSPICE做一些简单的信号仿真，评估信号经过一些链路模型传输后信号SI表型如何？需要在LTSPICE中采用信号系统中通常采用的伪随二进制码序列（PRBS）作为信号激励，模拟真实传输场景下数字信号频谱分布，
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/create_PWL_for_spice_simulation/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -439,9 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/how-to-simulat-SFF-Connector/" itemprop="url">怎么建立简单的ZSFP连接器模型进行SI仿真</a></h1>
+          <h1 class="post-title" itemprop="name headline">怎么建立简单的ZSFP连接器模型进行SI仿真</h1>
         
 
         <div class="post-meta">
@@ -524,18 +375,15 @@
       
 
       
-        
-          <h2 id="文章摘要"><a href="#文章摘要" class="headerlink" title="文章摘要"></a>文章摘要</h2><p>本文介绍了如何在无法获取对应connector连接器模型进行3D SI仿真时，如何通过一些简单的结构分解手段和等效计算方式构建对应的连接器模型进行仿真计算。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/how-to-simulat-SFF-Connector/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <h2 id="文章摘要"><a href="#文章摘要" class="headerlink" title="文章摘要"></a>文章摘要</h2><p>本文介绍了如何在无法获取对应connector连接器模型进行3D SI仿真时，如何通过一些简单的结构分解手段和等效计算方式构建对应的连接器模型进行仿真计算。<a id="more"></a><br>文章主要以zSFP连接器为例，介绍简单反向构建的思路，并对最后的仿真进行结果对比，验证解题思路的正确性。</p>
+<h2 id="构建3D仿真模型"><a href="#构建3D仿真模型" class="headerlink" title="构建3D仿真模型"></a>构建3D仿真模型</h2><h3 id="构建PCB传输线模型"><a href="#构建PCB传输线模型" class="headerlink" title="构建PCB传输线模型"></a>构建PCB传输线模型</h3><p>整个模型的验证setup工作基本根据连接器厂商提供的相关文档信息推算。根据厂商建议的connect pattern设计连接器验证所需的PCB，用来承载zsfp+连接器。对于PCB中缺少的的阻抗线信息，我们可以通过文档中的信息反推算阻抗线对大致的宽度和距离，我们预设differential pairs gap为0.2mm，可以得到符合差分阻抗为100ohm的差分对的线宽和线距参数。另外还可以采用一种方法，就是随意设置阻抗线的参数，在运算时采用去嵌功能去除其影响，这种方法在仿真设置激励时必须采用波端口。<br>使用软件计算PCB传输线的阻抗<br><img src="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190502215114.png" alt></p>
+<h3 id="构建连接器模型"><a href="#构建连接器模型" class="headerlink" title="构建连接器模型"></a>构建连接器模型</h3><p>连接器本体模型根据其connectors drawing文档来进行3D模型的逆推,从官网下载的step模型中分离出contact pin的结构，并对整个模型做一些细节简化处理（配合图片比例，采用结构设计中简单的布尔运算）及材料猜定（连接器一般为LCP材质），模型建立主要参考的设计图纸如下。<br>整体仿真模型结构：<br><img src="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190502215541.png" alt><br>连接器contact PIN结构：<br><img src="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190502215817.png" alt><br>利用3D结构的测量数据来推算下底座含介质时差分管脚之间的阻抗值，从而反求大致的介电常数，后续可以在仿真中进行小范围的参数扫描，以求获得较高的结果符合度，其推算模型如下<br><img src="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190502220856.png" alt></p>
+<h3 id="整体仿真模型"><a href="#整体仿真模型" class="headerlink" title="整体仿真模型"></a>整体仿真模型</h3><p>最后建立的仿真模型如下<br><img src="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190502221012.png" alt></p>
+<h2 id="仿真结果对比"><a href="#仿真结果对比" class="headerlink" title="仿真结果对比"></a>仿真结果对比</h2><p>下列所有结果图中红色为本文仿真结果，蓝色为厂家提供的仿真结果<br>反射系数对比：<br><img src="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190502221338.png" alt><br>插入损耗对比：<br><img src="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190502221654.png" alt><br>从上可以看出在小于25G频带内，本文仿真结果和官方的数据具有较好的吻合度，但是在后面的频段中，两者的差异越来越大。说明本文反演的connector结构和厂商的设计结构细节上存在差异，而且这些差异对高频端的仿真结果影响很大。<br>差分阻抗值对比：<br><img src="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190502221932.png" alt><br>共模阻抗值对比：<br><img src="https://raw.githubusercontent.com/RookieInOP/upload_pics/master/20190502222050.png" alt><br>注意官方数据加入100ps delay的标准阻抗线做参考，从阻抗图可以再次验证整体反算的结果准度还可以，连接器模型可以用到下一步的整体仿真中</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文进行连接器仿真模型的反算思路可以获得较好的仿真结果，但还存在一些细节方面的缺憾。最好的情况是获得官方的3D模型进行仿真，如果存在资源无法获得情况，不失为一种较好的替代方式，需要注意根据反算结果来限定仿真适用的信号速率。<br>数据对比环节还可以进一步改善，可以使用工具从图片中获得作图数据，将仿真结果数据和官方介绍数据放到一张图中进行对比，对比细节更加完善。</p>
+
       
-    </p></div>
+    </div>
     
     
     
@@ -544,175 +392,74 @@
 
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Mark
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://rookieinop.github.io/how-to-simulat-SFF-Connector/" title="怎么建立简单的ZSFP连接器模型进行SI仿真">https://rookieinop.github.io/how-to-simulat-SFF-Connector/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+  <li class="post-copyright-license">
+    文章和代码仅供学习使用，若涉及权利问题，请及时联系版主处理。
+  </li>
+</ul>
+
+
+      </div>
     
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://rookieinop.github.io/Use-verilog-A-model-in-ADS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mark">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Rookie's Garden">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Use-verilog-A-model-in-ADS/" itemprop="url">在ADS中使用Verilog-A模型进行仿真</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-27T23:51:53+08:00">
-                2016-04-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/信号完整性/" itemprop="url" rel="index">
-                    <span itemprop="name">信号完整性</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/SI/" rel="tag"># SI</a>
           
-
+            <a href="/tags/connector/" rel="tag"># connector</a>
           
-            
+            <a href="/tags/zSFP/" rel="tag"># zSFP</a>
           
-
+            <a href="/tags/simulation/" rel="tag"># simulation</a>
           
+            <a href="/tags/TDR/" rel="tag"># TDR</a>
           
-             <span id="/Use-verilog-A-model-in-ADS/" class="leancloud_visitors" data-flag-title="在ADS中使用Verilog-A模型进行仿真">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <h2 id="什么是Verilog-A模型"><a href="#什么是Verilog-A模型" class="headerlink" title="什么是Verilog-A模型"></a>什么是Verilog-A模型</h2><p>可以简单理解为采用Verilog类似的语法来描述Analog电路器件模型，见wikipedia的解释:<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Use-verilog-A-model-in-ADS/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Use-verilog-A-model-in-ADS/" rel="next" title="在ADS中使用Verilog-A模型进行仿真">
+                <i class="fa fa-chevron-left"></i> 在ADS中使用Verilog-A模型进行仿真
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/create_PWL_for_spice_simulation/" rel="prev" title="如何使用Python自动产生SPICE仿真用PWL文件">
+                如何使用Python自动产生SPICE仿真用PWL文件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -722,10 +469,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -733,6 +481,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -753,8 +505,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -837,6 +598,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文章摘要"><span class="nav-number">1.</span> <span class="nav-text">文章摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构建3D仿真模型"><span class="nav-number">2.</span> <span class="nav-text">构建3D仿真模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构建PCB传输线模型"><span class="nav-number">2.1.</span> <span class="nav-text">构建PCB传输线模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建连接器模型"><span class="nav-number">2.2.</span> <span class="nav-text">构建连接器模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整体仿真模型"><span class="nav-number">2.3.</span> <span class="nav-text">整体仿真模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#仿真结果对比"><span class="nav-number">3.</span> <span class="nav-text">仿真结果对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -979,6 +756,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
