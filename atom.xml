@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://rookieinop.github.io/"/>
-  <updated>2019-04-28T15:18:21.765Z</updated>
+  <updated>2019-05-03T07:29:16.704Z</updated>
   <id>https://rookieinop.github.io/</id>
   
   <author>
@@ -15,6 +15,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>how-to-run-python-in-notepadplus</title>
+    <link href="https://rookieinop.github.io/how-to-run-python-in-notepadplus/"/>
+    <id>https://rookieinop.github.io/how-to-run-python-in-notepadplus/</id>
+    <published>2019-05-03T07:29:16.000Z</published>
+    <updated>2019-05-03T07:29:16.704Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;文章摘要&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>如何使用Python自动产生SPICE仿真用PWL文件</title>
