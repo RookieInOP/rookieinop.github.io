@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://rookieinop.github.io/"/>
-  <updated>2019-05-03T07:29:16.704Z</updated>
+  <updated>2019-04-28T15:18:21.765Z</updated>
   <id>https://rookieinop.github.io/</id>
   
   <author>
@@ -15,22 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>how-to-run-python-in-notepadplus</title>
-    <link href="https://rookieinop.github.io/how-to-run-python-in-notepadplus/"/>
-    <id>https://rookieinop.github.io/how-to-run-python-in-notepadplus/</id>
-    <published>2019-05-03T07:29:16.000Z</published>
-    <updated>2019-05-03T07:29:16.704Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;文章摘要&lt;br&gt;
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>如何使用Python自动产生SPICE仿真用PWL文件</title>
@@ -111,6 +95,30 @@
       <category term="Simulation" scheme="https://rookieinop.github.io/tags/Simulation/"/>
     
       <category term="SI" scheme="https://rookieinop.github.io/tags/SI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何在notepad++中集成python运行的快捷命令</title>
+    <link href="https://rookieinop.github.io/how-to-run-python-in-notepadplus/"/>
+    <id>https://rookieinop.github.io/how-to-run-python-in-notepadplus/</id>
+    <published>2014-11-15T07:29:16.000Z</published>
+    <updated>2019-05-03T08:42:42.139Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;文章简介&quot;&gt;&lt;a href=&quot;#文章简介&quot; class=&quot;headerlink&quot; title=&quot;文章简介&quot;&gt;&lt;/a&gt;文章简介&lt;/h2&gt;&lt;p&gt;Notepad++作为一款免费的text编辑器，用户群十分广泛，功能也十分强大。内置代码高亮功能，同时通过插件功能还可以拓展众多的功能，也适合用来做为python的编程学习工具。本文介绍如何在Notepad++软件中集成python运行命令，可以在coding完后，直接运行对应代码，免去使用命令行进行解释运行的麻烦。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="编程学习" scheme="https://rookieinop.github.io/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="python" scheme="https://rookieinop.github.io/tags/python/"/>
+    
+      <category term="notepad++" scheme="https://rookieinop.github.io/tags/notepad/"/>
+    
+      <category term="program" scheme="https://rookieinop.github.io/tags/program/"/>
     
   </entry>
   
